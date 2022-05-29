@@ -1,0 +1,12 @@
+{
+    "name": "CRDevtoolsBugRepro",
+    "version": "0.1",
+    "description": "A minimal example of a Chrome extension bug since v102",
+    "devtools_page": "devtools.html",
+    "permissions": [
+        "tabs", 
+        "http://*/*",
+        "https://*/*"
+    ],
+    "manifest_version": 2
+}
