@@ -1,12 +1,25 @@
 {
-    "name": "CRDevtoolsBugRepro",
-    "version": "0.1",
-    "description": "A minimal example of a Chrome extension bug since v102",
+    "name": "DevToolsTest",
+    "manifest_version": 3,
+    "version": "0.2",
+    "description": "A minimal example of a Chrome devtools extension",
     "devtools_page": "devtools.html",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'",
+        "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-inline' *; object-src 'self'"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "sandbox": {
+        "pages": [
+            "sandbox.html"
+        ]
+    },
     "permissions": [
-        "tabs", 
-        "http://*/*",
-        "https://*/*"
+        "scripting"
     ],
-    "manifest_version": 2
+    "host_permissions": [
+        "<all_urls>"
+    ]
 }
