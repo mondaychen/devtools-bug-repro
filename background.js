@@ -1,23 +1,18 @@
-// Send data via message to background.js
-// chrome.runtime.sendMessage({ hello: 'from contentjs' }, function (response) {
-//   console.log('in contentjs')
-//   console.log(response)
-// });
-
-// // Listen to messages sent by content.js
-// chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-//   // iframe is defined by background.html
-//   var iframe = document.getElementById('extension-iframe')
-
-//   // Send message to script living inside iframe
-//   iframe.contentWindow.postMessage(msg, '*')
-
-//   // Listen to messages sent by script living inside iframe
-//   window.addEventListener('message', function (event) {
-//     console.log('backgroundjs')
-//     // Reply to content.js
-//     sendResponse(event.data)
-//   }, { once: true })
-
-//   return true // Indicates async sendResponse behavior
-// })
+// chrome.scripting.registerContentScripts(
+//   [
+//     {
+//       id: 'hook',
+//       matches: ['<all_urls>'],
+//       js: ['devtools_backend.js'],
+//       runAt: 'document_start',
+//       world: chrome.scripting.ExecutionWorld.MAIN,
+//     },
+//   ],
+//   function () {
+//     // When the content scripts are already registered, an error will be thrown.
+//     // It happens when the service worker process is incorrectly duplicated.
+//     if (chrome.runtime.lastError) {
+//       console.error(chrome.runtime.lastError);
+//     }
+//   },
+// );

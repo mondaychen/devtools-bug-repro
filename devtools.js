@@ -11,7 +11,7 @@ const sandbox = document.getElementById('sandbox');
 
 // Create a tab in the devtools area
 chrome.devtools.panels.create(
-  "BugRepro",
+  "demo",
   "toast.png",
   "panel.html",
   function (panel) {
